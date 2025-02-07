@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        background-image: url('floral.jpeg')
+        input, button { padding: 10px; margin: 10px; width: 300px; }
+        button { cursor: pointer; }
+        #response { margin-top: 20px; font-size: 18px; font-weight: bold; color: purple; }
+    </style>
+</head>
+<body>
+    <h2>Mental Health Support</h2>
+    <p>Tell us how you feel, and we’ll suggest ways to help.</p>
+    <input type="text" id="userInput" placeholder="Type your feeling (e.g., anxious, sad)">
+    <button onclick="getResponse()">help</button>
+    <div id="response"></div>
+
+    <script>
+        function getResponse() {
+            let input = document.getElementById("userInput").value.toLowerCase();
+            let responseArea = document.getElementById("response");
+
+            // Predefined responses based on feelings
+            let responses = {
+                "sad": "It's okay to feel sad,Try listening to music,talking to a friend or writing down your thoughts",
+                "anxious": "Let out your feelings by crying,take deep breaths, try meditation, or go for a walk to calm your mind.",
+                "stressed": "Break tasks into small steps, take a break, and try some relaxation exercises.",
+                "lonely": "Reach out to a loved one, join a community group, or try journaling to express yourself.",
+                "angry": "Try deep breathing, count to 10 before reacting, or engage in physical exercise.",
+                "depressed": "Consider seeking support from a mental health professional. You're not alone."
+            };
+
+            // Check if input matches a predefined feeling
+            responseArea.innerText = responses[input] || "I may not fully understand, but remember, you're not alone. Try speaking to someone you trust.";
+        }
+    </script>
+</body>
+</html>
